@@ -173,16 +173,19 @@ with st.container():
         torque = st.number_input("Enter Torque", min_value=250.0, max_value=600.0, value=None, step=5.0, placeholder="Enter Torque (kNm)")
     
     with col3:
-        st.markdown("#### Cutter rpm")
+        st.markdown("#### Cutter Rpm")
         speed = st.number_input("Enter Cutter rpm", min_value=2.5, max_value=5.0, value=None, step=0.1, placeholder="Enter Speed (rpm)")
     
     # Center-align the button
-    _, button_col, _ = st.columns([1, 2, 1])
+    # Position the button slightly to the right and more down
+    _, spacer_col, button_col, _ = st.columns([1, 0.5, 2, 0.5])
     with button_col:
+        # Add more vertical space before the button
+        st.write("")
+        st.write("")
+        st.write("")  # Multiple empty writes add more vertical space
         # Button to predict
         predict_btn = st.button("Soil Type & Optimized Penetration Rate", key="predict_button")
-    
-    st.markdown('</div>', unsafe_allow_html=True)
 
 # Display results when the button is clicked
 if predict_btn:
